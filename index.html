@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Mobile Menu Toggle -->
+        <div class="mobile-menu-toggle" aria-label="Open Menu">
+            <i class='bx bx-menu'></i>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-close" aria-label="Close Menu">
+                <i id="x-button" class='bx bx-x'></i>
+            </div>
+            <div class="logo-container">
+                <div class="logo">
+                    <i class='bx bxs-dashboard'></i>
+                    <span>Admin Panel</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active" data-section="home">
+                        <a href="#home">
+                            <i class='bx bx-home-alt'></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li data-section="profile">
+                        <a href="#profile">
+                            <i class='bx bx-user'></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li data-section="analytics">
+                        <a href="#analytics">
+                            <i class='bx bx-chart'></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li data-section="projects">
+                        <a href="#projects">
+                            <i class='bx bx-briefcase'></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li data-section="messages">
+                        <a href="#messages">
+                            <i class='bx bx-message-rounded'></i>
+                            <span>Messages</span>
+                        </a>
+                    </li>
+                    <li data-section="settings">
+                        <a href="#settings">
+                            <i class='bx bx-cog'></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="theme-toggle">
+                    <i class='bx bx-moon'></i>
+                    <span>Dark Mode</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <div class="header-left">
+                    <div class="search-wrapper">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Search dashboard...">
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="quick-actions">
+                        <button class="action-btn create-btn">
+                            <i class='bx bx-plus'></i>
+                            <span>New</span>
+                        </button>
+                        <button class="action-btn create-btn">
+                            <i class='bx bx-upload'></i>
+                            <span>Upload</span>
+                        </button>
+                        <button class="action-btn create-btn">
+                            <i class='bx bxs-cloud-upload'></i>
+                            <span>Share</span>
+                        </button>
+                        <div class="notifications-wrapper">
+                            <div class="notifications-icon">
+                                <i class='bx bx-bell'></i>
+                                <span class="notification-badge">3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-wrapper">
+                        <img src="https://images.pexels.com/photos/3609457/pexels-photo-3609457.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Profile" class="profile-img">
+                        <div class="profile-details">
+                            <span class="profile-name">John Doe</span>
+                            <span class="profile-role">Admin</span>
+                        </div>
+                        <i class='bx bx-chevron-down profile-dropdown'></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <section class="stats-overview">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class='bx bx-dollar-circle'></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Revenue</h3>
+                            <span class="stat-number">$45,231</span>
+                            <small class="stat-change positive">+12.5%</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class='bx bx-group'></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>New Customers</h3>
+                            <span class="stat-number">1,234</span>
+                            <small class="stat-change positive">+8.7%</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class='bx bx-cart'></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Orders</h3>
+                            <span class="stat-number">456</span>
+                            <small class="stat-change negative">-2.3%</small>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="recent-projects">
+                    <h2>Recent Projects</h2>
+                    <div class="project-list">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <h3>Web Redesign</h3>
+                                <span class="project-status in-progress">In Progress</span>
+                            </div>
+                            <div class="project-details">
+                                <div class="project-team">
+                                    <img class="project-team-img" src="https://images.pexels.com/photos/9558713/pexels-photo-9558713.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Team Member">
+                                    <img class="project-team-img" src="https://images.pexels.com/photos/5748620/pexels-photo-5748620.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Team Member">
+                                    <img class="project-team-img" src="https://images.pexels.com/photos/7946266/pexels-photo-7946266.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Team Member">
+                                </div>
+                                <div class="project-progress">
+                                    <div class="progress-bar" style="width: 65%;"></div>
+                                    <span>65%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <h3>Mobile App</h3>
+                                <span class="project-status in-progress">In Progress</span>
+                            </div>
+                            <div class="project-details">
+                                <div class="project-team">
+                                    <img class="project-team-img" src="https://images.pexels.com/photos/9558713/pexels-photo-9558713.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Team Member">
+                                    <img class="project-team-img" src="https://images.pexels.com/photos/5748620/pexels-photo-5748620.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Team Member">
+                                    <img class="project-team-img" src="https://images.pexels.com/photos/7946266/pexels-photo-7946266.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Team Member">
+                                </div>
+                                <div class="project-progress">
+                                    <div class="progress-bar" style="width: 65%;"></div>
+                                    <span>65%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More project cards -->
+                    </div>
+                </section>
+
+                <section class="announcements">
+                    <h2>Announcements</h2>
+                    <div class="announcements-list">
+                        <div class="announcement-card">
+                            <div class="announcement-icon">
+                                <i class='bx bx-bell'></i>
+                            </div>
+                            <div class="announcement-content">
+                                <h3>System Maintenance</h3>
+                                <p>Scheduled maintenance on Saturday, 10 PM EST. Expect brief downtime.</p>
+                                <small>2 hours ago</small>
+                            </div>
+                        </div>
+                        <div class="announcement-card">
+                            <div class="announcement-icon">
+                                <i class='bx bx-info-circle'></i>
+                            </div>
+                            <div class="announcement-content">
+                                <h3>New Feature Release</h3>
+                                <p>Enhanced analytics dashboard with advanced reporting capabilities.</p>
+                                <small>1 day ago</small>
+                            </div>
+                        </div>
+                        <div class="announcement-card">
+                            <div class="announcement-icon">
+                                <i class='bx bx-award'></i>
+                            </div>
+                            <div class="announcement-content">
+                                <h3>Team Performance Award</h3>
+                                <p>Congratulations to the Q2 top-performing team!</p>
+                                <small>3 days ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="trending-items">
+                    <h2>Trending Items</h2>
+                    <div class="trending-list">
+                        <div class="trending-card">
+                            <img src="https://images.pexels.com/photos/12899524/pexels-photo-12899524.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Trending Item" class="trending-image">
+                            <div class="trending-details">
+                                <h3>UX Design Course</h3>
+                                <p>Most viewed learning resource this week</p>
+                                <div class="trending-stats">
+                                    <span><i class='bx bx-show'></i> 5.2K Views</span>
+                                    <span><i class='bx bx-like'></i> 1.8K Likes</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trending-card">
+                            <img src="https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600" alt="Trending Item" class="trending-image">
+                            <div class="trending-details">
+                                <h3>Marketing Report</h3>
+                                <p>Highest engagement this month</p>
+                                <div class="trending-stats">
+                                    <span><i class='bx bx-show'></i> 3.7K Views</span>
+                                    <span><i class='bx bx-like'></i> 1.2K Likes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

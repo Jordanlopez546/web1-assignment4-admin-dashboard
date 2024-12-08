@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./assets/styles/form.css">
+</head>
+<body>
+    <div class="form-container">
+        <form id="multi-step-form">
+            <!-- Page 1 -->
+            <div class="form-page active" id="page1">
+                <h2>Personal Information</h2>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <span class="error" id="name-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error" id="email-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country" name="country" required>
+                        <option value="">Select Country</option>
+                        <option value="USA">United States</option>
+                        <option value="Canada">Canada</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span class="error" id="country-error"></span>
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="gender" value="male" required>
+                            Male
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="female">
+                            Female
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="other">
+                            Other
+                        </label>
+                    </div>
+                    <span class="error" id="gender-error"></span>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-next" onclick="nextPage(1)">
+                        Next <i class='bx bx-right-arrow-alt'></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Page 2 -->
+            <div class="form-page" id="page2">
+                <h2>Medical Information</h2>
+                <div class="form-group">
+                    <label>Do you have any medical condition?</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="has-condition" value="yes" required>
+                            Yes
+                        </label>
+                        <label>
+                            <input type="radio" name="has-condition" value="no">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group condition-details" style="display: none;">
+                    <label for="condition-details">Please describe your medical condition</label>
+                    <textarea id="condition-details" name="condition-details" rows="4"></textarea>
+                    <span class="error" id="condition-error"></span>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-prev" onclick="prevPage(2)">
+                        <i class='bx bx-left-arrow-alt'></i> Previous
+                    </button>
+                    <button type="submit" class="btn-submit">
+                        Submit <i class='bx bx-check'></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Submission Result Display -->
+        <div id="submission-result" class="submission-result">
+            <h3>Submitted Information</h3>
+            <div id="result-content"></div>
+        </div>
+    </div>
+
+    <script src="./assets/js/form-script.js"></script>
+</body>
+</html>
