@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.querySelector('.sidebar');
     const sidebarClose = document.querySelector('.sidebar-close');
     const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
     const navLinks = document.querySelectorAll('.sidebar nav ul li');
     const notificationsIcon = document.querySelector('.notifications-icon');
     const notificationsBadge = document.querySelector('.notification-badge');
@@ -42,17 +43,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Theme Toggle
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        localStorage.setItem('theme', 
-            document.body.classList.contains('dark-mode') ? 'dark' : 'light'
-        );
-    });
+    function toggleTheme() {
+        const isDarkMode = document.body.classList.toggle('dark-mode');
+        
+        // Update localStorage
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        
+        // Animate theme toggle icon
+        if (isDarkMode) {
+            themeIcon.classList.remove('bx-sun');
+            themeIcon.classList.add('bx-moon');
+            themeIcon.style.animation = 'moonGlow 2s infinite alternate';
+        } else {
+            themeIcon.classList.remove('bx-moon');
+            themeIcon.classList.add('bx-sun');
+            themeIcon.style.animation = 'none';
+        }
+    }
 
-    // Restore theme preference
+    themeToggle.addEventListener('click', toggleTheme);
+
+    // Restore theme preference with smooth transition
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         document.body.classList.add('dark-mode');
+        themeIcon.classList.remove('bx-sun');
+        themeIcon.classList.add('bx-moon');
     }
 
     // Notifications Interaction
@@ -73,4 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
             sidebar.classList.remove('active');
         }
     });
+
+    
 });

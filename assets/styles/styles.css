@@ -10,7 +10,34 @@
   --card-bg-light: white;
   --card-bg-dark: #1e1e1e;
   --border-color: #e0e0e0;
+  --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  --secondary-gradient: linear-gradient(135deg, #ff6b6b 0%, #ff8c42 100%);
+  --card-shadow-light: 0 10px 25px rgba(0,0,0,0.08);
+  --card-shadow-dark: 0 15px 35px rgba(0,0,0,0.15);
+
+  --card-hover-transform: scale(1.03);
   
+  /* Dark Mode Color Palette */
+  --bg-dark-primary: #121212;
+  --bg-dark-secondary: #1e1e1e;
+  --bg-dark-tertiary: #2c2c2c;
+  
+  /* Sophisticated Gradient Colors */
+  --primary-gradient-dark: linear-gradient(135deg, #8a2be2 0%, #4b0082 100%);
+  --secondary-gradient-dark: linear-gradient(135deg, #ff4757 0%, #ff6b6b 100%);
+  
+  /* Text Colors */
+  --text-dark: #e0e0e0;
+  --text-dark-muted: #a0a0a0;
+  
+  /* Accent Colors */
+  --accent-dark-purple: #6a11cb;
+  --accent-dark-blue: #2575fc;
+  --accent-dark-red: #ff6b6b;
+  
+  /* Shadow and Depth */
+  --shadow-dark: 0 15px 35px rgba(0,0,0,0.2);
+
   /* Transitions */
   --transition-speed: 0.3s;
 }
@@ -32,9 +59,201 @@ body {
   overflow-x: hidden;
 }
 
+/* Global Dark Mode Styles */
 body.dark-mode {
-  background-color: var(--bg-dark);
+  background-color: var(--bg-dark-primary);
   color: var(--text-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode * {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+body.dark-mode *::-webkit-scrollbar {
+  width: 8px;
+}
+
+body.dark-mode *::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+/* Dark Mode Specific Styles */
+body.dark-mode .dashboard-container {
+  background-color: var(--bg-dark);
+}
+
+/* Sidebar Dark Mode */
+body.dark-mode .sidebar {
+  background: var(--bg-dark-secondary);
+  box-shadow: var(--shadow-dark);
+}
+
+body.dark-mode .sidebar nav ul li a {
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .sidebar nav ul li.active a,
+body.dark-mode .sidebar nav ul li a:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateX(10px);
+}
+
+/* Header Dark Mode */
+body.dark-mode .main-content {
+  background-color: var(--bg-dark-primary);
+}
+
+body.dark-mode header {
+  background-color: transparent;
+}
+
+/* Search Wrapper */
+body.dark-mode .search-wrapper {
+  background-color: var(--bg-dark-secondary);
+  border: 1px solid var(--bg-dark-tertiary);
+  box-shadow: var(--shadow-dark);
+}
+
+body.dark-mode .search-wrapper input {
+  background-color: var(--bg-dark-secondary);
+  color: var(--text-dark);
+}
+
+body.dark-mode .search-wrapper i {
+  color: var(--accent-dark-blue);
+}
+
+/* Buttons Dark Mode */
+body.dark-mode .create-btn {
+  background: var(--secondary-gradient-dark);
+  transition: transform 0.3s ease;
+}
+
+body.dark-mode .create-btn:hover {
+  transform: translateY(-7px) scale(1.05);
+}
+
+body.dark-mode .notification-badge {
+  background-color: var(--accent-dark-red);
+  color: var(--text-dark);
+}
+
+/* Profile Wrapper Dark Mode */
+body.dark-mode .profile-wrapper {
+  color: var(--text-dark);
+}
+
+body.dark-mode .profile-wrapper .profile-name {
+  color: var(--text-dark);
+}
+
+body.dark-mode .profile-wrapper .profile-role {
+  color: var(--text-dark-muted);
+}
+
+/* Cards Dark Mode */
+body.dark-mode .stat-card,
+body.dark-mode .project-card,
+body.dark-mode .announcement-card,
+body.dark-mode .trending-card {
+  background-color: var(--bg-dark-secondary);
+  color: var(--text-dark);
+  border: 1px solid var(--bg-dark-tertiary);
+  box-shadow: var(--shadow-dark);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body.dark-mode .stat-card:hover,
+body.dark-mode .project-card:hover,
+body.dark-mode .announcement-card:hover,
+body.dark-mode .trending-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* Stat Icons */
+body.dark-mode .stat-icon {
+  background: rgba(138, 45, 226, 0.1);
+  color: #8a2be2;
+  transition: transform 0.3s ease;
+}
+
+body.dark-mode .stat-icon:hover {
+  transform: rotate(360deg) scale(1.1);
+}
+
+body.dark-mode .announcement-icon {
+  background: rgba(255, 71, 87, 0.1);
+  color: #ff4757;
+}
+
+body.dark-mode .project-status {
+  color: #8e2de2;
+}
+
+body.dark-mode .project-progress .progress-bar {
+  background: rgba(255,255,255,0.1);
+}
+
+body.dark-mode .project-progress .progress-bar::after {
+  background: var(--primary-gradient-dark);
+}
+
+/* Text Adaptations */
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: var(--text-dark);
+}
+
+body.dark-mode p,
+body.dark-mode small {
+  color: var(--text-dark-muted);
+}
+
+/* Theme Toggle Styling */
+body.dark-mode .theme-toggle {
+  color: var(--text-dark);
+}
+
+body.dark-mode .theme-toggle i {
+  color: #f1c40f;
+  animation: moonGlow 2s infinite alternate;
+}
+
+/* Additional Dark Mode Refinements */
+body.dark-mode .mobile-menu-toggle {
+  background: var(--bg-dark-secondary);
+}
+
+/* Animations */
+@keyframes moonGlow {
+  from { text-shadow: 0 0 5px #f1c40f; }
+  to { text-shadow: 0 0 15px #f1c40f, 0 0 25px #f1c40f; }
+}
+
+/* Highlight and Selection */
+body.dark-mode ::selection {
+  background-color: rgba(138, 45, 226, 0.3);
+  color: var(--text-dark);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1024px) {
+  body.dark-mode .sidebar {
+    background: var(--bg-dark-secondary);
+  }
+}
+
+/* Transition for Smooth Mode Switching */
+body, 
+body.dark-mode {
+  transition: 
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* Dashboard Container */
@@ -172,6 +391,7 @@ header {
   align-items: center;
   margin-bottom: 20px;
   gap: 20px;
+  background: transparent;
 }
 
 .header-left, .header-right {
@@ -278,24 +498,45 @@ header {
 
 .stat-card {
   background: white;
-  border-radius: 15px;
-  padding: 20px;
+  border-radius: 20px;
+  padding: 25px;
   display: flex;
   align-items: center;
-  gap: 15px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  transition: transform var(--transition-speed) ease;
+  gap: 20px;
+  box-shadow: var(--card-shadow-light);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--primary-gradient);
 }
 
 .stat-card:hover {
-  transform: translateY(-10px);
+  transform: var(--card-hover-transform);
+  box-shadow: var(--card-shadow-dark);
 }
 
 .stat-icon {
   background: rgba(106, 17, 203, 0.1);
   color: var(--primary-color);
-  padding: 15px;
+  padding: 20px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-icon {
+  transform: rotate(360deg);
 }
 
 .stat-content {
@@ -322,14 +563,30 @@ header {
 
 .project-card {
   background: white;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform var(--transition-speed) ease;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: var(--card-shadow-light);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--primary-gradient);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
+  transform: var(--card-hover-transform);
+  box-shadow: var(--card-shadow-dark);
 }
 
 .project-header {
@@ -339,10 +596,28 @@ header {
   margin-bottom: 10px;
 }
 
+.project-card:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 .project-status {
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-progress .progress-bar {
+  background: var(--bg-light);
+  height: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.project-progress .progress-bar::after {
+  background: var(--primary-gradient);
+  transition: width 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
 }
 
 .project-status.in-progress {
@@ -409,27 +684,53 @@ header {
 
 .announcement-card {
   background: white;
-  border-radius: 10px;
-  padding: 15px;
+  border-radius: 20px;
+  padding: 25px;
   display: flex;
   align-items: center;
-  gap: 15px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform var(--transition-speed) ease;
+  gap: 20px;
+  box-shadow: var(--card-shadow-light);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.announcement-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--secondary-gradient);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
 }
 
 .announcement-card:hover {
-  transform: translateY(-10px);
+  transform: var(--card-hover-transform);
+  box-shadow: var(--card-shadow-dark);
+}
+
+.announcement-card:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .announcement-icon {
-  background: rgba(106, 17, 203, 0.1);
-  color: var(--primary-color);
+  background: rgba(255, 107, 107, 0.1);
+  color: var(--accent-color);
   padding: 15px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.announcement-card:hover .announcement-icon {
+  transform: scale(1.1) rotate(360deg);
 }
 
 .announcement-content h3 {
@@ -449,24 +750,50 @@ header {
 /* Trending Items Section */
 .trending-card {
   background: white;
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 15px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform var(--transition-speed) ease;
+  gap: 20px;
+  padding: 25px;
+  box-shadow: var(--card-shadow-light);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.trending-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--secondary-gradient);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
 }
 
 .trending-card:hover {
-  transform: translateY(-10px);
+  transform: var(--card-hover-transform);
+  box-shadow: var(--card-shadow-dark);
+}
+
+.trending-card:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .trending-image {
   width: 80px;
   height: 80px;
   object-fit: cover;
-  border-radius: 10px;
+  transition: transform 0.4s ease;
+  border-radius: 15px;
+}
+
+.trending-card:hover .trending-image {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .trending-details h3 {
@@ -495,6 +822,33 @@ header {
 .trending-stats i {
   color: var(--primary-color);
 }
+
+/* Dark Mode Adaptations */
+body.dark-mode {
+  .stat-card,
+  .project-card,
+  .announcement-card,
+  .trending-card {
+    background-color: var(--card-bg-dark);
+    color: var(--text-dark);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+}
+
+/* Subtle Animations */
+@keyframes cardAnimation {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-grid > section > * {
+  animation: cardAnimation 0.6s ease-out;
+  animation-fill-mode: backwards;
+}
+
+.dashboard-grid > section > *:nth-child(2) { animation-delay: 0.1s; }
+.dashboard-grid > section > *:nth-child(3) { animation-delay: 0.2s; }
+.dashboard-grid > section > *:nth-child(4) { animation-delay: 0.3s; }
 
 /* Responsive adjustments */
 @media screen and (max-width: 1024px) {
