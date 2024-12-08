@@ -429,6 +429,10 @@ header {
   margin: 0 auto;
 }
 
+.new-form-link {
+  text-decoration: none;
+}
+
 .create-btn {
   display: flex;
   align-items: center;
@@ -913,4 +917,109 @@ body.dark-mode {
 @keyframes slideIn {
   from { opacity: 0; transform: translateX(-50px); }
   to { opacity: 1; transform: translateX(0); }
+}
+
+/* Form Specific Styles */
+.form-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: var(--card-shadow-light);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body.dark-mode .form-container {
+  background: var(--bg-dark-secondary);
+  box-shadow: var(--shadow-dark);
+}
+
+.form-page {
+  display: none;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.form-page.active {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+}
+
+body.dark-mode .form-control {
+  background-color: var(--bg-dark-tertiary);
+  border-color: var(--bg-dark-tertiary);
+  color: var(--text-dark);
+}
+
+.error-message {
+  color: var(--accent-color);
+  font-size: 0.8rem;
+  margin-top: 5px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.form-btn {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.form-btn:hover {
+  transform: translateY(-5px);
+}
+
+body.dark-mode .form-btn {
+  background: var(--primary-gradient-dark);
+}
+
+#submissionSummary {
+  margin-top: 30px;
+  padding: 20px;
+  background: var(--bg-light);
+  border-radius: 15px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+body.dark-mode #submissionSummary {
+  background: var(--bg-dark-secondary);
+  color: var(--text-dark);
+}
+
+@media screen and (max-width: 768px) {
+  .form-container {
+      width: 90%;
+      padding: 20px;
+  }
 }

@@ -3,99 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Information Form</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Modern Multi-Page Form</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/styles/form.css">
 </head>
 <body>
-    <div class="form-container">
-        <form id="multi-step-form">
-            <!-- Page 1 -->
-            <div class="form-page active" id="page1">
-                <h2>Personal Information</h2>
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
-                    <span class="error" id="name-error"></span>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                    <span class="error" id="email-error"></span>
-                </div>
-                <div class="form-group">
-                    <label for="country">Country</label>
-                    <select id="country" name="country" required>
-                        <option value="">Select Country</option>
-                        <option value="USA">United States</option>
-                        <option value="Canada">Canada</option>
-                        <option value="UK">United Kingdom</option>
-                        <option value="Australia">Australia</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    <span class="error" id="country-error"></span>
-                </div>
-                <div class="form-group">
-                    <label>Gender</label>
-                    <div class="radio-group">
-                        <label>
-                            <input type="radio" name="gender" value="male" required>
-                            Male
-                        </label>
-                        <label>
-                            <input type="radio" name="gender" value="female">
-                            Female
-                        </label>
-                        <label>
-                            <input type="radio" name="gender" value="other">
-                            Other
-                        </label>
+    <div class="form-wrapper">
+        <div class="theme-toggle">
+            <i class="bx bx-moon"></i>
+            <i class="bx bx-sun"></i>
+        </div>
+        
+        <div class="form-container">
+            <form id="multiPageForm">
+                <!-- Page 1: Personal Information -->
+                <div id="page1" class="form-page active">
+                    <div class="page-header">
+                        <h2>Personal Information</h2>
+                        <p>Tell us about yourself</p>
                     </div>
-                    <span class="error" id="gender-error"></span>
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn-next" onclick="nextPage(1)">
-                        Next <i class='bx bx-right-arrow-alt'></i>
-                    </button>
-                </div>
-            </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <div class="input-wrapper">
+                            <i class="bx bx-user"></i>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your full name">
+                        </div>
+                        <div id="nameError" class="error-message"></div>
+                    </div>
 
-            <!-- Page 2 -->
-            <div class="form-page" id="page2">
-                <h2>Medical Information</h2>
-                <div class="form-group">
-                    <label>Do you have any medical condition?</label>
-                    <div class="radio-group">
-                        <label>
-                            <input type="radio" name="has-condition" value="yes" required>
-                            Yes
-                        </label>
-                        <label>
-                            <input type="radio" name="has-condition" value="no">
-                            No
-                        </label>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="bx bx-envelope"></i>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                        </div>
+                        <div id="emailError" class="error-message"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <div class="input-wrapper">
+                            <i class="bx bx-globe"></i>
+                            <select id="country" class="form-control">
+                                <option value="">Select your country</option>
+                                <option value="USA">United States</option>
+                                <option value="Canada">Canada</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div id="countryError" class="error-message"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="Male">
+                                <span>Male</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="Female">
+                                <span>Female</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="Other">
+                                <span>Other</span>
+                            </label>
+                        </div>
+                        <div id="genderError" class="error-message"></div>
+                    </div>
+
+                    <div class="form-navigation">
+                        <button type="button" class="form-btn" data-next-page="1">
+                            Next <i class="bx bx-right-arrow-alt"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="form-group condition-details" style="display: none;">
-                    <label for="condition-details">Please describe your medical condition</label>
-                    <textarea id="condition-details" name="condition-details" rows="4"></textarea>
-                    <span class="error" id="condition-error"></span>
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn-prev" onclick="prevPage(2)">
-                        <i class='bx bx-left-arrow-alt'></i> Previous
-                    </button>
-                    <button type="submit" class="btn-submit">
-                        Submit <i class='bx bx-check'></i>
-                    </button>
-                </div>
-            </div>
-        </form>
 
-        <!-- Submission Result Display -->
-        <div id="submission-result" class="submission-result">
-            <h3>Submitted Information</h3>
-            <div id="result-content"></div>
+                <!-- Page 2: Medical Information -->
+                <div id="page2" class="form-page">
+                    <div class="page-header">
+                        <h2>Medical Information</h2>
+                        <p>Help us understand your health needs</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Do you have a disability or medical condition?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="medicalCondition" value="Yes">
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="medicalCondition" value="No">
+                                <span>No</span>
+                            </label>
+                        </div>
+                        <div id="medicalConditionError" class="error-message"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="medicalDetails">If yes, please provide details</label>
+                        <div class="input-wrapper">
+                            <i class="bx bx-health"></i>
+                            <textarea id="medicalDetails" class="form-control" rows="4" placeholder="Describe your medical condition or disability"></textarea>
+                        </div>
+                        <div id="medicalDetailsError" class="error-message"></div>
+                    </div>
+
+                    <div class="form-navigation">
+                        <button type="button" class="form-btn form-btn-secondary" data-prev-page="2">
+                            <i class="bx bx-left-arrow-alt"></i> Previous
+                        </button>
+                        <button type="button" class="form-btn" data-submit-form>
+                            Submit <i class="bx bx-check"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div id="submissionSummary" class="submission-summary"></div>
         </div>
     </div>
 
